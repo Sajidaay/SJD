@@ -1,12 +1,13 @@
-#include "mainwindow.h"
+#include <QCoreApplication>
 #include <QApplication>
 #include <qDebug>
 #include <QFile>
 #include <QString>
 #include <QVector>
+#include <QTextStream>
 
 class stu{
-
+public:
     QString name;
     QString num;
     QVector <stu> list;
@@ -56,8 +57,8 @@ int main(int argc, char *argv[])
 
     while(!in.atEnd())
     {
-        QString line=in.readLine();
-        QStringList in=line.split("M");
+        QString line=fileName.readLine();
+        QStringList date=line.split(" ");
         qDebug()<<line;
     }
 
