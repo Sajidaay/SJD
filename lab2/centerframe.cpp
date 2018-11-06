@@ -272,10 +272,10 @@
     {
         drawWidget->clear();
    }
-    /*void CenterFrame::showimg() //
+    void CenterFrame::showimg() //声明背景图形选择显示函数
     {
         drawWidget->showpic();
-    }*/
+    }
 
 
   void CenterFrame::on_btnRectClicked()

@@ -37,11 +37,11 @@
         void setWidth(int);
        void setColor(QColor);
         void clear();
-         void showpic();//-------------------
+         void showpic();//-----------背景显示函数--------
 
     private :
         QPixmap *pix;
-        QPixmap *pic;//----------------
+        QPixmap *pic;//------------背景图指针----
         QPoint startpos;
         QPoint endpos;
         bool canDraw;
@@ -51,7 +51,7 @@
        ST::ShapeType drawType;
        QString drawnText;
        //----------------------------
-        QString imagFile=":/Minions.jpg";
+        QString imagFile=":/Minions.jpg"; //背景图文件
   };
   #endif // DRAWWIDGET_H
 

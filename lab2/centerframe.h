@@ -34,7 +34,7 @@
        void setPenWidth(int width=1);
        void setPenColor(QColor color);
        void clearPaint();
-
+       void showimg();//加入函数
 
    protected slots:
        void on_btnRectClicked();
@@ -59,7 +59,7 @@
       QPushButton* btnDiamond;//加菱形按钮
        QLineEdit* edtText;
 
-QPushButton* btnimg;
+//QPushButton* btnimg;
 
     };
 

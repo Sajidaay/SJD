@@ -17,7 +17,7 @@
          centerFrame = new CenterFrame;   //新建CenterFrame对象
          setCentralWidget (centerFrame);  //新建的centerFrame->insideWidget()对象作为主窗口的中央窗口
         createToolBar ();                //创建一个工具栏
-         setMinimumSize (1000, 800);       //设置主窗体的最小尺寸
+         setMinimumSize (500, 400);       //设置主窗体的最小尺寸
         setWindowTitle(tr("实验二 - 窗口、控件及基本绘图实验 "));
 
          penStyleChangged(styleComboBox->currentData().toInt());      //初始化线型，设置控件中当前值作为初始值
@@ -66,6 +66,14 @@
         colorBtn->setIcon (QIcon(pixmap));
         colorBtn->setToolTip(tr("选择画笔颜色"));
         connect (colorBtn, &QToolButton::clicked, this, &MainWindow::penColorChangged);
+//-------------------------------------------------------------
+  // ------------------背景图选择
+        picBtn = new QToolButton;
+             picBtn->setText(tr("背景图"));
+             picBtn->setToolTip(tr("选择图片"));
+             connect(picBtn,&QToolButton::clicked,
+                     centerFrame,&CenterFrame::showimg);
+
 
 
         // 创建清除工具栏
@@ -73,6 +81,7 @@
         clearBtn->setText (tr("清除"));
          clearBtn->setToolTip(tr("清除当前画板"));
         connect (clearBtn, &QToolButton::clicked, centerFrame, &CenterFrame::clearPaint);
+
 
 
         // 向工具栏上添加各个控件
@@ -83,6 +92,7 @@
        toolBar->addWidget (colorBtn);
       toolBar->addSeparator();
         toolBar->addWidget (clearBtn);
+        toolBar->addWidget(picBtn);//背景图控件
 
 
    }

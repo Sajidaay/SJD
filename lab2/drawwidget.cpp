@@ -14,7 +14,7 @@
         pix = new QPixmap(size());      //此QPixmap对象用来准备随时接受绘制的内容
        pix->fill (BACKGROUND_COLOR);          //填充背景色为白色
         setMinimumSize (500, 400);      //设置绘制区窗体的最小尺寸
-//------------------------------
+//------------------------------设置所选背景图
         pic = new QPixmap(size());
         pic->fill(Qt::transparent);
         pic->load(imagFile);
@@ -24,7 +24,7 @@
     {
         // 注意：一定要删除pix指针
        delete pix;
-       delete pic;//------------------------
+       delete pic;//-------用所选图片做背景的指针-----------------
    }
 
     void DrawWidget::setStyle (int s)
@@ -94,13 +94,15 @@
    {
        QPainter painter(this);
        painter.drawPixmap (QPoint(0, 0), *pix);
-       //-------------------------
-       QRect img_rect=QRect(0,0,this->width()/4,this->height()/4);
-       QImage pic1=pix->toImage();
+       //-------------------------绘制背景图设置
+       QRect img_rect=QRect(0,0,this->width(),this->height());//图的规格
+       QImage pic1=pix->toImage();//图像格式转换
        QImage pic2=pic->toImage();
-       painter.drawImage(0,0,pic1);
+      painter.drawImage(0,0,pic1);
        painter.drawImage(img_rect,pic2);
-       //---------------------------------
+
+
+       //-----------------------------------------
    }
 
 
@@ -124,7 +126,11 @@
        // 清除绘图内容，简单的用背景色填充整个画布即可
        pix->fill(BACKGROUND_COLOR);
        pic->fill(BACKGROUND_COLOR);//---------------
-       update ();
+
+           update ();
+       //delete pic;
+       //delete pix;
+       //painter();
   }
    void DrawWidget::showpic()//添加图片作背景
    {
@@ -267,7 +273,7 @@
       case ST::Text:{
 
        if(drawnText.isEmpty()){
-            QMessageBox::information(this,tr("提示"),tr("想说啥写啥！"));
+            QMessageBox::information(this,tr("提示"),tr("请输入！"));
          }else{
               QFont font = painter.font();
               font.setPixelSize(64);
