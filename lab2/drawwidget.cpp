@@ -95,7 +95,7 @@
        QPainter painter(this);
        painter.drawPixmap (QPoint(0, 0), *pix);
        //-------------------------绘制背景图设置
-       QRect img_rect=QRect(0,0,this->width(),this->height());//图的规格
+       QRect img_rect=QRect(0,0,this->width()/4,this->height()/4);//图的规格
        QImage pic1=pix->toImage();//图像格式转换
        QImage pic2=pic->toImage();
       painter.drawImage(0,0,pic1);
